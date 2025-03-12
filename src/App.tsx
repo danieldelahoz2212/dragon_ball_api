@@ -68,11 +68,6 @@ function App() {
         overflowX: "hidden",
       }}
     >
-      <audio autoPlay loop>
-        <source src="/assets/Dragon-ball.m4a" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-
       <Stack
         direction="row"
         justifyContent="center"
