@@ -64,14 +64,25 @@ function App() {
         alignItems: "center",
         gap: 5,
         minHeight: "100vh",
+        width: "100%",
+        overflowX: "hidden",
       }}
     >
+      <audio autoPlay loop>
+        <source src="/assets/Dragon-ball.m4a" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+
       <Stack
         direction="row"
         justifyContent="center"
         alignItems="center"
         gap={5}
         p={5}
+        sx={{
+          width: "100%",
+          flexWrap: "wrap",
+        }}
       >
         <Box
           component="img"
