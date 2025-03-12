@@ -58,11 +58,14 @@ function App() {
   return (
     <Container
       sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 5,
         minHeight: "100vh",
-        py: 5,
       }}
     >
-
       <Stack
         direction="row"
         justifyContent="center"
