@@ -1,11 +1,11 @@
-import { Container, Stack, Box, Typography, Modal } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Container, Stack, Box, Typography, Modal, Skeleton } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./App.css";
-import { useEffect, useState } from "react";
 import axiosInstance from "./api/dragon-ball";
 import { Character, IResponderGetCharacters } from "./types/type";
 import { Cards } from "./components/Cards";
@@ -105,11 +105,11 @@ function App() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: { xs: "90%", sm: "80%", md: "70%", lg: "60%", xl: "50%" },
-            maxHeight: "90vh",
+            width: "70%",
+            maxHeight: "70vh",
             bgcolor: "#1e1e1e",
             color: "#fff",
-            borderRadius: "15px",
+            borderRadius: "20px",
             boxShadow: 24,
             p: 4,
             display: "flex",
@@ -118,7 +118,19 @@ function App() {
             overflow: "auto",
           }}
         >
-          {selectedCharacter && (
+          {!selectedCharacter ? (
+            <Stack direction="row" spacing={3}>
+              <Skeleton variant="rectangular" width={250} height={350} />
+              <Stack spacing={2} flex={1}>
+                <Skeleton variant="text" width="60%" height={40} />
+                <Skeleton variant="text" width="90%" height={20} />
+                <Skeleton variant="text" width="90%" height={20} />
+                <Skeleton variant="text" width="50%" height={20} />
+                <Skeleton variant="text" width="80%" height={20} />
+                <Skeleton variant="text" width="70%" height={20} />
+              </Stack>
+            </Stack>
+          ) : (
             <>
               <Box
                 sx={{
@@ -132,8 +144,8 @@ function App() {
                   src={mainImage || selectedCharacter.image}
                   alt={selectedCharacter.name}
                   sx={{
-                    width: { xs: "100%", md: "250px" },
-                    height: { xs: "auto", md: "400px" },
+                    width: { xs: "90%", md: "250px" },
+                    height: { xs: "auto", md: "350px" },
                     objectFit: "contain",
                     borderRadius: "10px",
                     backgroundColor: "#2c2c2c",
@@ -190,50 +202,64 @@ function App() {
               >
                 Transformaciones
               </Typography>
-              <Box width="100%">
-                <Swiper
-                  modules={[Navigation, Pagination]}
-                  navigation
-                  pagination={{ clickable: true }}
-                  slidesPerView={3}
-                  style={{ width: "100%", height: "300px" }}
-                >
-                  {selectedCharacter.transformations.map((transformation) => (
-                    <SwiperSlide key={transformation.id}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                        }}
-                      >
+              {selectedCharacter.transformations.length > 0 ? (
+                <Box width="100%">
+                  <Swiper
+                    modules={[Navigation, Pagination]}
+                    navigation
+                    pagination={{ clickable: true }}
+                    slidesPerView={3}
+                    style={{ width: "100%", height: "300px" }}
+                  >
+                    {selectedCharacter.transformations.map((transformation) => (
+                      <SwiperSlide key={transformation.id}>
                         <Box
-                          component="img"
-                          src={transformation.image}
-                          alt={transformation.name}
                           sx={{
-                            width: "100%",
-                            height: "200px",
-                            objectFit: "contain",
-                            cursor: "pointer",
-                            transition: "transform 0.2s",
-                            "&:hover": {
-                              transform: "scale(1.05)",
-                            },
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
                           }}
-                          onClick={() => setMainImage(transformation.image)}
-                        />
-                        <Typography
-                          variant="subtitle2"
-                          sx={{ color: "#fff", mt: 1 }}
                         >
-                          {transformation.name}
-                        </Typography>
-                      </Box>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </Box>
+                          <Box
+                            component="img"
+                            src={transformation.image}
+                            alt={transformation.name}
+                            sx={{
+                              width: "100%",
+                              height: "200px",
+                              objectFit: "contain",
+                              cursor: "pointer",
+                              transition: "transform 0.2s",
+                              "&:hover": {
+                                transform: "scale(1.05)",
+                              },
+                            }}
+                            onClick={() => setMainImage(transformation.image)}
+                          />
+                          <Typography
+                            variant="subtitle2"
+                            sx={{ color: "#fff", mt: 1 }}
+                          >
+                            {transformation.name}
+                          </Typography>
+                        </Box>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </Box>
+              ) : (
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    color: "#aaa",
+                    width: "100%",
+                    textAlign: "center",
+                    mt: 2,
+                  }}
+                >
+                  No hay transformaciones disponibles.
+                </Typography>
+              )}
             </>
           )}
         </Box>
