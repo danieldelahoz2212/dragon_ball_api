@@ -75,7 +75,11 @@ src/
 
 ## API utilizada
 
-La aplicación consume datos de una API de Dragon Ball. Ejemplo de respuesta de la API para un personaje:
+La aplicación consume datos de la API de Dragon Ball. Puedes consultar la documentación completa de la API en el siguiente enlace:
+
+[Documentación de la API de Dragon Ball](https://web.dragonball-api.com/documentation)
+
+## Ejemplo de respuesta de la API para un personaje:
 
 ```bash
 {
