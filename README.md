@@ -60,7 +60,7 @@ Sigue estos pasos para ejecutar el proyecto en tu máquina local:
 
 ## Estructura del proyecto
 
-````bash
+```bash
 src/
 ├── components/
 │   ├── Cards.tsx       # Componente para mostrar la lista de personajes
@@ -71,72 +71,75 @@ src/
 ├── App.tsx             # Componente principal de la aplicación
 ├── App.css             # Estilos globales
 ├── App.css
+```
 
 ## API utilizada
 
 La aplicación consume datos de una API de Dragon Ball. Ejemplo de respuesta de la API para un personaje:
-   ```bash
-   {
-   id: 1
-   name: "Goku"
-   ki: "60.000.000"
-   maxKi: "90 Septillion"
-   race: "Saiyan"
-   gender: "Male"
-   description: "El protagonista de la serie, conocido por su gran ..."
-   image: "https://dragonball-api.com/characters/goku_normal...."
-   affiliation: "Z Fighter"
-   deletedAt: null
-   originPlanet: {
-   id: 3
-   name: "Vegeta"
-   isDestroyed: true
-   description: "El planeta Vegeta, conocido como planeta Plant ant..."
-   image: "https://dragonball-api.com/planetas/Planeta_Vegeta..."
-   deletedAt: null
-   }
-   transformations: [
-   0: {
-   id: 1
-   name: "Goku SSJ"
-   image: "https://dragonball-api.com/transformaciones/goku_s..."
-   ki: "3 Billion"
-   deletedAt: null
-   }
-   1: {
-   id: 2
-   name: "Goku SSJ2"
-   image: "https://dragonball-api.com/transformaciones/goku_s..."
-   ki: "6 Billion"
-   deletedAt: null
-   }
-   2: {
-   id: 3
-   name: "Goku SSJ3"
-   image: "https://dragonball-api.com/transformaciones/goku_s..."
-   ki: "24 Billion"
-   deletedAt: null
-   }
-   3: {
-   id: 4
-   name: "Goku SSJ4"
-   image: "https://dragonball-api.com/transformaciones/goku_s..."
-   ki: "2 Quadrillion"
-   deletedAt: null
-   }
-   4: {
-   id: 5
-   name: "Goku SSJB"
-   image: "https://dragonball-api.com/transformaciones/goku_s..."
-   ki: "9 Quintillion"
-   deletedAt: null
-   }
-   5: {
-   id: 44
-   name: "Goku Ultra Instinc"
-   image: "https://dragonball-api.com/transformaciones/goku_u..."
-   ki: "90 Septillion"
-   deletedAt: null
-   }
-   ]
-   }
+
+```bash
+{
+  "id": 1,
+  "name": "Goku",
+  "ki": "60,000,000",
+  "maxKi": "90 Septillion",
+  "race": "Saiyan",
+  "gender": "Male",
+  "description": "El protagonista de la serie, conocido por su gran poder y espíritu de lucha.",
+  "image": "https://dragonball-api.com/characters/goku_normal.png",
+  "affiliation": "Z Fighter",
+  "deletedAt": null,
+  "originPlanet": {
+    "id": 3,
+    "name": "Vegeta",
+    "isDestroyed": true,
+    "description": "El planeta Vegeta, hogar de los Saiyans.",
+    "image": "https://dragonball-api.com/planetas/Planeta_Vegeta.png",
+    "deletedAt": null
+  },
+  "transformations": [
+    {
+      "id": 1,
+      "name": "Goku SSJ",
+      "image": "https://dragonball-api.com/transformaciones/goku_ssj.png",
+      "ki": "3 Billion",
+      "deletedAt": null
+    },
+    {
+      "id": 2,
+      "name": "Goku SSJ2",
+      "image": "https://dragonball-api.com/transformaciones/goku_ssj2.png",
+      "ki": "6 Billion",
+      "deletedAt": null
+    },
+    {
+      "id": 3,
+      "name": "Goku SSJ3",
+      "image": "https://dragonball-api.com/transformaciones/goku_ssj3.png",
+      "ki": "24 Billion",
+      "deletedAt": null
+    },
+    {
+      "id": 4,
+      "name": "Goku SSJ4",
+      "image": "https://dragonball-api.com/transformaciones/goku_ssj4.png",
+      "ki": "2 Quadrillion",
+      "deletedAt": null
+    },
+    {
+      "id": 5,
+      "name": "Goku SSJB",
+      "image": "https://dragonball-api.com/transformaciones/goku_ssjb.png",
+      "ki": "9 Quintillion",
+      "deletedAt": null
+    },
+    {
+      "id": 6,
+      "name": "Goku Ultra Instinct",
+      "image": "https://dragonball-api.com/transformaciones/goku_ultra_instinct.png",
+      "ki": "90 Septillion",
+      "deletedAt": null
+    }
+  ]
+}
+```
